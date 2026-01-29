@@ -1,11 +1,30 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# Scanalyze - Production Setup Instructions
 
-  <h1>Built with AI Studio</h2>
+## Prerequisites
+- Node.js 18+ & npm
+- Python 3.9+
+- PostgreSQL 14+
+- Tesseract OCR engine (`sudo apt install tesseract-ocr`)
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Quick Start (Frontend)
+1. Install dependencies: `npm install`
+2. Run React dev server: `npm start`
+3. Access at `http://localhost:3000`
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Backend Setup (Node/Express)
+1. Navigate to `backend/`
+2. Configure `.env` with `DATABASE_URL` and `JWT_SECRET`
+3. Run `npx prisma migrate dev` to setup schema
+4. Start server: `npm run dev`
 
-</div>
+## OCR Microservice Setup (Python)
+1. Navigate to `ocr_service/`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Start service: `python app.py`
+
+## Testing the API
+Use the following endpoints in Postman:
+- `POST /auth/register`: `{ "name": "...", "email": "...", "password": "..." }`
+- `POST /scan/upload`: FormData with key `file` containing an image.
+- `GET /history`: Header `Authorization: Bearer <token>`

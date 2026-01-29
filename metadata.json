@@ -1,0 +1,7 @@
+{
+  "name": "Scanalyze",
+  "description": "Production-ready ingredient analysis platform using AI-powered OCR and safety risk assessment.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
